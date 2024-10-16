@@ -1,0 +1,36 @@
+<!-- frontend/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the ML Project Frontend</h1>
+        
+        <form id="predict-form" action="/predict" method="POST">
+            <h3>Enter Input Data for Prediction</h3>
+            <!-- Add form elements for user input -->
+            <label for="input1">Feature 1:</label>
+            <input type="text" id="input1" name="input1" required><br><br>
+
+            <label for="input2">Feature 2:</label>
+            <input type="text" id="input2" name="input2" required><br><br>
+
+            <!-- Add more inputs for other features as needed -->
+
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div id="result">
+            <!-- This section will display the prediction result -->
+            {% if result %}
+                <h3>Prediction Result: {{ result }}</h3>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
